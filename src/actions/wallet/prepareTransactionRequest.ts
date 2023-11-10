@@ -31,8 +31,8 @@ import {
   MaxFeePerGasTooLowError,
 } from '../../errors/fee.js'
 import type { GetAccountParameter } from '../../types/account.js'
-import type { Chain } from '../../types/chain.js'
-import type { GetChain } from '../../types/chain.js'
+import type { Chain, DeriveChain } from '../../types/chain.js'
+import type { GetChainParameter } from '../../types/chain.js'
 import type { TransactionSerializable } from '../../types/transaction.js'
 import type { UnionOmit } from '../../types/utils.js'
 import type { FormattedTransactionRequest } from '../../utils/formatters/transactionRequest.js'
@@ -48,24 +48,20 @@ export type PrepareTransactionRequestParameters<
   TChain extends Chain | undefined = Chain | undefined,
   TAccount extends Account | undefined = Account | undefined,
   TChainOverride extends Chain | undefined = Chain | undefined,
-> = UnionOmit<
-  FormattedTransactionRequest<
-    TChainOverride extends Chain ? TChainOverride : TChain
-  >,
-  'from'
-> &
+  ///
+  derivedChain extends Chain | undefined = DeriveChain<TChain, TChainOverride>,
+> = UnionOmit<FormattedTransactionRequest<derivedChain>, 'from'> &
   GetAccountParameter<TAccount> &
-  GetChain<TChain, TChainOverride>
+  GetChainParameter<TChain, TChainOverride>
 
 export type PrepareTransactionRequestReturnType<
   TChain extends Chain | undefined = Chain | undefined,
   TAccount extends Account | undefined = Account | undefined,
   TChainOverride extends Chain | undefined = Chain | undefined,
-> = FormattedTransactionRequest<
-  TChainOverride extends Chain ? TChainOverride : TChain
-> &
+  derivedChain extends Chain | undefined = DeriveChain<TChain, TChainOverride>,
+> = FormattedTransactionRequest<derivedChain> &
   GetAccountParameter<TAccount> &
-  GetChain<TChain, TChainOverride>
+  GetChainParameter<TChain, TChainOverride>
 
 export type PrepareTransactionRequestErrorType =
   | AccountNotFoundErrorType
