@@ -41,5 +41,6 @@ export const zoraSepolia = /*#__PURE__*/ defineChain({
       },
     },
   },
+  sourceId,
   testnet: true,
 })

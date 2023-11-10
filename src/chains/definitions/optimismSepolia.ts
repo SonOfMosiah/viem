@@ -32,4 +32,5 @@ export const optimismSepolia = /*#__PURE__*/ defineChain({
     },
   },
   testnet: true,
+  sourceId,
 })

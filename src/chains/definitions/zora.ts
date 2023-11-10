@@ -33,4 +33,5 @@ export const zora = /*#__PURE__*/ defineChain({
       },
     },
   },
+  sourceId,
 })

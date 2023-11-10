@@ -31,5 +31,5 @@ export const optimism = /*#__PURE__*/ defineChain({
       },
     },
   },
-  sourceId: 1,
+  sourceId,
 })

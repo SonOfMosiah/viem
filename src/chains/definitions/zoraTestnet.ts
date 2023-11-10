@@ -36,5 +36,6 @@ export const zoraTestnet = /*#__PURE__*/ defineChain({
       },
     },
   },
+  sourceId,
   testnet: true,
 })

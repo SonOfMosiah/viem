@@ -37,5 +37,5 @@ export const baseSepolia = /*#__PURE__*/ defineChain({
     },
   },
   testnet: true,
-  sourceId, // sepolia
+  sourceId,
 })
