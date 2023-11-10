@@ -1,6 +1,8 @@
 import { defineChain } from '../../utils/chain/defineChain.js'
 import { chainConfig } from '../opStack/chainConfig.js'
 
+const sourceId = 5 // goerli
+
 export const zoraTestnet = /*#__PURE__*/ defineChain({
   ...chainConfig,
   id: 999,
@@ -27,6 +29,11 @@ export const zoraTestnet = /*#__PURE__*/ defineChain({
     multicall3: {
       address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 189123,
+    },
+    portal: {
+      [sourceId]: {
+        address: '0xDb9F51790365e7dc196e7D072728df39Be958ACe',
+      },
     },
   },
   testnet: true,
